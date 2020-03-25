@@ -15,12 +15,13 @@ npm install --save react-class-component-hooks
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'react-class-component-hooks'
+import {UseEffect} from 'react-class-component-hooks'
 
 class Example extends Component {
+  state = {updateUsers: []}
   render () {
     return (
-      <MyComponent />
+      <UseEffect watches={[this.props.users]} onUpdate={() => this.setState({updateUsers: this.props.users})} />
     )
   }
 }
